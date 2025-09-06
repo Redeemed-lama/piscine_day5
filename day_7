@@ -1,0 +1,22 @@
+package main
+
+import ("fmt"
+"bufio"
+"os"
+"strings")
+
+func main (){
+	fmt.Println("Enter a sentence:")
+	scanner:=bufio.NewScanner(os.Stdin)
+	scanner.Scan()
+	txt:=scanner.Text()
+	words:=strings.Fields(txt)
+	wordLength:=make(map[string]int)
+	for _,word := range words{
+		wordLength[word]=len(word)
+	}
+	for word , length :=range wordLength{
+		fmt.Printf("%s:%d\n",word,length)
+	}
+
+}
